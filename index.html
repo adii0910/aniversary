@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #ffe4f0;
+    --ink: #3b2c2c;
+    --accent: #b8860b;
+    --rose: #d97c9e;
+    --line: rgba(217,124,158,0.35);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 12% 10%, #ffd6e8 0%, transparent 18%),
+      radial-gradient(circle at 82% 16%, #ffe8d8 0%, transparent 14%),
+      radial-gradient(circle at 18% 38%, #fff1b6 0%, transparent 15%),
+      radial-gradient(circle at 72% 40%, #e2c1f4 0%, transparent 14%),
+      radial-gradient(circle at 40% 70%, #ffd7e8 0%, transparent 16%),
+      radial-gradient(circle at 88% 76%, #d8f3ff 0%, transparent 15%),
+      radial-gradient(circle at 44% 22%, #fff 0%, transparent 10%),
+      linear-gradient(180deg, rgba(255,242,245,0.95), rgba(255,244,241,0.95));
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.7;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  h1, h2, .display{
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 40px 20px;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(201,138,138,0.15), transparent 60%),
+      var(--bg);
+  }
+  .hero .eyebrow{
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--rose);
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-size: clamp(42px, 8vw, 84px);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  .hero .names{
+    font-size: clamp(22px, 4vw, 32px);
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  .hero .date{
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .divider{
+    width: 70px;
+    height: 1px;
+    background: var(--line);
+    margin: 28px auto;
+  }
+  .scroll-hint{
+    margin-top: 50px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    animation: bounce 2.5s infinite;
+  }
+  @keyframes bounce{
+    0%,100%{transform: translateY(0);}
+    50%{transform: translateY(8px);}
+  }
+
+  /* ===== SECTIONS ===== */
+  section{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 90px 24px;
+  }
+  .section-title{
+    text-align:center;
+    font-size: clamp(30px, 5vw, 44px);
+    margin-bottom: 14px;
+  }
+  .section-sub{
+    text-align:center;
+    color: var(--rose);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 50px;
+  }
+
+  /* ===== PHOTO GALLERY ===== */
+  .gallery{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .photo{
+    aspect-ratio: 3/4;
+    border-radius: 6px;
+    overflow:hidden;
+    background: #eaddd2;
+    border: 1px solid var(--line);
+    position:relative;
+  }
+  .photo img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display:block;
+  }
+  .photo .placeholder-text{
+    color: var(--rose);
+    font-size: 14px;
+    text-align:center;
+    padding: 10px;
+  }
+  @media (max-width: 640px){
+    .gallery{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ===== LOVE LETTER ===== */
+  .letter{
+    background: #fffaf5;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 60px 50px;
+    box-shadow: 0 10px 40px rgba(184,134,11,0.08);
+    position: relative;
+  }
+  .letter::before{
+    content: "“";
+    position:absolute;
+    top: 10px;
+    left: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    color: var(--line);
+    line-height:1;
+  }
+  .letter p{
+    font-size: 21px;
+    margin: 0 0 20px;
+  }
+  .letter .signature{
+    margin-top: 36px;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--accent);
+    text-align: right;
+  }
+
+  /* ===== TIMELINE (optional milestones) ===== */
+  .timeline{
+    position: relative;
+    padding-left: 30px;
+    border-left: 1px solid var(--line);
+  }
+  .milestone{
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .milestone::before{
+    content:"";
+    position:absolute;
+    left: -36px;
+    top: 6px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 2px solid var(--bg);
+  }
+  .milestone .m-date{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .milestone .m-title{
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin: 0 0 6px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    text-align:center;
+    padding: 60px 20px 80px;
+    color: var(--rose);
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  footer .heart{
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  /* simple fade-in on scroll */
+  .fade-in{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-in.visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .flower-edge{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .flower-edge.left{ left: 0; }
+  .flower-edge.right{ right: 0; }
+  .flower{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #ffe4f0 25%, transparent 26%),
+                radial-gradient(circle at 50% 50%, #f9c1d9 24%, transparent 25%),
+                radial-gradient(circle at 30% 28%, #ff85c0 16%, transparent 17%),
+                radial-gradient(circle at 70% 28%, #ffd166 16%, transparent 17%),
+                radial-gradient(circle at 50% 76%, #fff 20%, transparent 21%);
+    box-shadow: 0 0 0 6px rgba(255,255,255,0.75), inset 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .flower::before,
+  .flower::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .flower::before{
+    top: 100%;
+    width: 4px;
+    height: 44px;
+    background: linear-gradient(180deg, rgba(131,87,62,0.95), rgba(90,50,32,0.95));
+    border-radius: 2px;
+  }
+  .flower::after{
+    top: 138%;
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle, #85c1ff 42%, transparent 43%);
+    border-radius: 50%;
+  }
+  .leaf{
+    width: 18px;
+    height: 56px;
+    background: linear-gradient(180deg, #8b5e3c, #6f4e32);
+    border-radius: 14px 14px 4px 4px;
+    position: relative;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  }
+  .leaf::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translateX(-50%) rotate(20deg);
+    width: 4px;
+    height: 70%;
+    background: rgba(255,255,255,0.18);
+    border-radius: 2px;
+  }
+  .leaf::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 28%;
+    transform: translateX(-50%) rotate(50deg);
+    width: 8px;
+    height: 16px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 50%;
+  }
+  .flower-edge.left .leaf{ transform: rotate(-12deg); }
+  .flower-edge.right .leaf{ transform: rotate(12deg); }
+  .flower-edge.left .flower:nth-child(odd){ transform: rotate(-10deg); }
+  .flower-edge.right .flower:nth-child(even){ transform: rotate(10deg); }
+  @media (max-width: 860px) {
+    .flower-edge { display: none; }
+  }
+
+  /* celebration effects */
+  .celebration{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .balloon{
+    position: absolute;
+    bottom: -180px;
+    width: 90px;
+    height: 130px;
+    border-radius: 50% 50% 48% 48%;
+    background: radial-gradient(circle at 35px 35px, rgba(255,255,255,0.85), currentColor 35%);
+    box-shadow: inset -8px -8px rgba(255,255,255,0.35), 0 18px 40px rgba(0,0,0,0.14);
+    animation: float-up 11s ease-in infinite, sway 4s ease-in-out infinite;
+  }
+  .balloon::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -28px;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 24px;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+    border-radius: 4px;
+  }
+  .balloon::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -56px;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 60px;
+    background: rgba(60, 40, 60, 0.35);
+  }
+  .balloon1{ left: 12%; color: #ff85c0; animation-delay: 0s; }
+  .balloon2{ left: 28%; color: #ffd166; animation-delay: 0.8s; animation-duration: 12s; }
+  .balloon3{ left: 52%; color: #8cc6ff; animation-delay: 1.4s; animation-duration: 10.8s; }
+  .balloon4{ left: 74%; color: #c78fff; animation-delay: 2.2s; animation-duration: 11.4s; }
+  @keyframes float-up{
+    0%{ bottom: -180px; }
+    100%{ bottom: 120vh; }
+  }
+  @keyframes sway{
+    0%, 100%{ transform: translateX(0); }
+    50%{ transform: translateX(22px); }
+  }
+  #fireworks{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <audio id="bgMusic" muted loop>
+    <source src="wave to earth.mp3" type="audio/mpeg">
+  </audio>
+  <div class="flower-edge left" aria-hidden="true">
+    <div class="flower"></div>
+    <div class="leaf"></div>
+    <div class="flower"></div>
+    <div class="leaf"></div>
+    <div class="flower"></div>
+    <div class="leaf"></div>
+  </div>
+  <div class="flower-edge right" aria-hidden="true">
+    <div class="leaf"></div>
+    <div class="flower"></div>
+    <div class="leaf"></div>
+    <div class="flower"></div>
+    <div class="leaf"></div>
+    <div class="flower"></div>
+  </div>
+  <div class="celebration" aria-hidden="true">
+    <div class="balloon balloon1"></div>
+    <div class="balloon balloon2"></div>
+    <div class="balloon balloon3"></div>
+    <div class="balloon balloon4"></div>
+    <div class="balloon balloon5"></div>
+    <div class="balloon balloon6"></div>
+    <div class="balloon balloon7"></div>
+    <div class="balloon balloon8"></div>
+
+  </div>
+  <canvas id="fireworks"></canvas>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="eyebrow">HAPPY</div>
+    <h1>Anniversary <br> bebi </h1>
+    <div class="names">ADII &amp; HEARTY</div>
+    <div class="divider"></div>
+    <div class="date">09 • 10 • 25 &mdash; 1 year</div>
+    <button id="playMusicBtn" style="margin-top: 30px; padding: 12px 28px; background: var(--rose); color: white; border: none; border-radius: 25px; font-size: 14px; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; font-family: 'Cormorant Garamond', serif;">♪ PLAY MUSIC ♪</button>
+    <div class="scroll-hint">scroll down↓</div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="fade-in">
+    <h2 class="section-title">MEMORIES</h2>
+    <div class="section-sub">Our Moments Together</div>
+    <div class="gallery">
+      <!-- Palitan ang src ng iyong sariling larawan, hal. "images/photo1.jpg" -->
+      <div class="photo"><img src="2.jpg" alt="Photo 1" onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-text').style.display='flex';"><div class="placeholder-text" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">Photo 1</div></div>
+      <div class="photo"><img src="3.jpg" alt="Photo 2" onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-text').style.display='flex';"><div class="placeholder-text" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">Photo 2</div></div>
+      <div class="photo"><img src="4.jpg" alt="Photo 3" onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-text').style.display='flex';"><div class="placeholder-text" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">Photo 3</div></div>
+      <div class="photo"><img src="5.jpg" alt="Photo 4" onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-text').style.display='flex';"><div class="placeholder-text" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">Photo 4</div></div>
+      <div class="photo"><img src="6.jpg" alt="Photo 5" onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-text').style.display='flex';"><div class="placeholder-text" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">Photo 5</div></div>
+      <div class="photo"><img src="1.jpg" alt="Photo 6" onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-text').style.display='flex';"><div class="placeholder-text" style="display:flex; width:100%; height:100%; align-items:center; justify-content:center;">Photo 6</div></div>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE (optional, edit/remove freely) ============ -->
+  <section class="fade-in">
+    <h2 class="section-title">STORY OF US    </h2>
+    <div class="section-sub">Our Story</div>
+    <div class="timeline">
+      <div class="milestone">
+        <div class="m-date">August</div>
+        <div class="m-title">fisrt meet</div>
+        <p>We first met, enrolled in school, but we were already talking on messenger and she was beautiful at that time.</p>
+      </div>
+      <div class="milestone">
+        <div class="m-date">september 10 </div>
+        <div class="m-title">we became official</div>
+        <p>It was my birthday at that time, I didn't expect that , I love you</p>
+      </div>
+      <div class="milestone">
+        <div class="m-date">september 10 </div>
+        <div class="m-title">anniversary</div>
+        <p>We've been together for a year, thank you for loving us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOVE LETTER ============ -->
+  <section class="fade-in">
+    <h2 class="section-title">For you bebii</h2>
+    <div class="section-sub">A Letter, From My Heart</div>
+    <div class="letter">
+      <p>
+        Happy 1st anniversary, my bebii. I can’t believe it has already been a year since we started this beautiful journey together. Every single day has been a blessing, and you have brought so much joy, light, and warmth into my life. You are not just my girlfriend; you are my best friend, my confidante, and the greatest thing that has ever happened to me. 
+      </p>
+      <p>
+       Thank you for your endless patience, your beautiful smile, and for loving me exactly as I am. I cherish every memory we’ve created, and I can’t wait to make so many more. Here is to 365 days of love, and to a lifetime more. I love you more than words could ever express.
+      </p>
+      <p>
+       And thank you for everything, even though sometimes it's hard for us to understand each other but at least we can last, thank you very much for the days you were there for me on the days I was down and had problems I love you so much my little heartyy
+      </p>
+      <div class="signature">iloveyou, ADRIAN MERIDOR</div>
+    </div>
+  </section>
+
+  
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="heart">♥</div>
+    <div>ADII &amp; HEARTY — september, 2026</div>
+  </footer>
+
+  <script>
+    // Simple scroll fade-in effect
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    faders.forEach(el => appearOnScroll.observe(el));
+
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    let canvasWidth = 0;
+    let canvasHeight = 0;
+    const rockets = [];
+    const particles = [];
+    const colors = ['#ff7fbf', '#ffd166', '#8cc6ff', '#c18cff', '#fff4a3', '#9dffbd'];
+
+    function resizeCanvas() {
+      canvasWidth = canvas.width = window.innerWidth;
+      canvasHeight = canvas.height = window.innerHeight;
+    }
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    class Rocket {
+      constructor(x, y, targetX, targetY, color) {
+        this.x = x;
+        this.y = y;
+        this.targetX = targetX;
+        this.targetY = targetY;
+        this.color = color;
+        this.speed = random(5, 8);
+        this.angle = Math.atan2(targetY - y, targetX - x);
+        this.distanceToTarget = Math.hypot(targetX - x, targetY - y);
+        this.trail = [];
+      }
+      update() {
+        this.trail.push({ x: this.x, y: this.y });
+        if (this.trail.length > 8) this.trail.shift();
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        if (Math.hypot(this.targetX - this.x, this.targetY - this.y) < this.speed) {
+          explode(this);
+          return true;
+        }
+        return false;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 2;
+        for (let i = 0; i < this.trail.length - 1; i++) {
+          const from = this.trail[i];
+          const to = this.trail[i + 1];
+          ctx.moveTo(from.x, from.y);
+          ctx.lineTo(to.x, to.y);
+        }
+        ctx.stroke();
+      }
+    }
+
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.speed = random(1.5, 6);
+        this.angle = random(0, Math.PI * 2);
+        this.alpha = 1;
+        this.decay = random(0.01, 0.03);
+        this.gravity = 0.08;
+      }
+      update() {
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed + this.gravity;
+        this.alpha -= this.decay;
+        return this.alpha <= 0;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.alpha})`;
+        ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function hexToRgb(hex) {
+      const bigint = parseInt(hex.replace('#', ''), 16);
+      return { r: (bigint >> 16) & 255, g: (bigint >> 8) & 255, b: bigint & 255 };
+    }
+
+    function explode(rocket) {
+      const color = hexToRgb(rocket.color);
+      for (let i = 0; i < 40; i++) {
+        particles.push(new Particle(rocket.x, rocket.y, color));
+      }
+    }
+
+    function launchRocket() {
+      const startX = random(canvasWidth * 0.2, canvasWidth * 0.8);
+      const targetX = random(canvasWidth * 0.2, canvasWidth * 0.8);
+      const targetY = random(canvasHeight * 0.1, canvasHeight * 0.4);
+      const color = colors[Math.floor(random(0, colors.length))];
+      rockets.push(new Rocket(startX, canvasHeight + 20, targetX, targetY, color));
+    }
+
+    function animateFireworks() {
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      if (Math.random() < 0.04) launchRocket();
+      rockets.slice().forEach((rocket, index) => {
+        if (rocket.update()) rockets.splice(index, 1);
+        rocket.draw();
+      });
+      particles.slice().forEach((particle, index) => {
+        if (particle.update()) particles.splice(index, 1);
+        particle.draw();
+      });
+      requestAnimationFrame(animateFireworks);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('load', () => {
+      resizeCanvas();
+      animateFireworks();
+      setTimeout(() => {
+        const fireworksCanvas = document.getElementById('fireworks');
+        if (fireworksCanvas) fireworksCanvas.style.opacity = '0';
+      }, 12000);
+    });
+
+    // Music button handler
+    const audio = document.getElementById('bgMusic');
+    const playBtn = document.getElementById('playMusicBtn');
+    
+    if (playBtn) {
+      playBtn.addEventListener('click', function() {
+        audio.muted = false;
+        audio.play();
+        playBtn.style.opacity = '0.6';
+        playBtn.textContent = '♪ MUSIC PLAYING ♪';
+      });
+    }
+  </script>
+
+</body>
+</html>
